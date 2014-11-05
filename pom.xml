@@ -21,7 +21,7 @@
 	<description>
         Using Maven with AspectJ
     </description>
-	<url>http://github.com/ozlerhakan</url>
+	<url>http://github.com/kodcu/MaJ</url>
 
 	<organization>
 		<name>Kodcu.com</name>
@@ -60,10 +60,11 @@
 				<artifactId>aspectj-maven-plugin</artifactId>
 				<version>1.7</version>
 				<configuration>
-					<complianceLevel>${maven.compiler.target}</complianceLevel>
+					<!-- In order to make use of Java 8 features in aspects we need to set the following statements -->
+					<complianceLevel>${java.version}</complianceLevel>
+					<!-- Optional configurations for the aspect compiler -->
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
-					<!-- Optional configurations for the aspect compiler -->
 					<outxml>true</outxml>
 					<verbose>true</verbose>
 					<showWeaveInfo>true</showWeaveInfo>
