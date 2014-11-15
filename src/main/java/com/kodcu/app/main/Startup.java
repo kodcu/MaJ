@@ -45,7 +45,7 @@ public class Startup {
 		System.out.println("## Show only non-null Samsung and Huawei devices");
 		data.getAllDataAsStream().forEach(dev -> {
 			Optional<Device> device = Optional.ofNullable(dev);
-			device.filter(f -> f.deviceBrand().equals(Brand.Samsung) || f.deviceBrand().equals(Brand.Huawei))
+			device.filter(d -> Boolean.logicalOr(d.deviceBrand().equals(Brand.Samsung) , d.deviceBrand().equals(Brand.Huawei)))
 				  .ifPresent(Startup::showBeautyMessage);
 		});	
 		
